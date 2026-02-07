@@ -1,0 +1,3 @@
+*.sol linguist-language=Solidity
+*.py linguist-language=Python
+*.cairo linguist-language=Cairo
