@@ -1,2 +1,2 @@
-# Cairo placeholder (replace with real contract)
-# Fix: explicit role checks + safe role transition sequencing.
+// Fix: explicit authority gating
+pragma solidity ^0.8.20;

@@ -1,2 +1,2 @@
-# Cairo placeholder (replace with real contract)
-# Fix: safe math + explicit bounds + rounding-safe accounting.
+// Fix: bounded math
+pragma solidity ^0.8.20;

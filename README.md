@@ -1,40 +1,24 @@
-# Protocol Security Lab (Phase 4.5)
+# Protocol Security Lab
 
-A focused lab for **protocol-level security failures in Solidity systems**.
+Audience: protocol engineers, security reviewers, and auditors.
 
-This repository demonstrates how **invariants break**, how exploits arise,
-and how minimal fixes restore safety.
+This repo is a **bug-zoo security lab**: small, reproducible vulnerability demos with:
+- a vulnerable implementation,
+- an exploit reproduction,
+- a mitigation (fixed version),
+- a write-up mapping: invariant → failure → impact.
 
-## What this repo is
-- Solidity / EVM focused
-- Protocol-level reasoning (not single-function bugs)
-- Invariant → failure → impact → mitigation
+## How to navigate
+Start here:
+- docs/methodology.md
 
-## Primary focus (deep)
-- Reentrancy
-  - early state use
-  - repeated consumption
-  - invariant violation
-  - minimal fix
+Then pick one:
+- vulnerabilities/reentrancy/
+- vulnerabilities/access-control/
+- vulnerabilities/arithmetic/
 
-## Secondary examples (light)
-- Access control
-- Arithmetic / accounting
+## Core thesis (Merge Recall)
+Spike happens early → corruption slips in → events confirm state → systems trust it → lie locks permanently.
 
-These exist to show breadth, not depth.
-
-## Structure
-- vulnerabilities/ — intentionally broken Solidity contracts
-- exploits/ — scripts demonstrating failure
-- mitigations/ — minimal Solidity fixes
-- docs/ — methodology and reasoning
-
-## How to read
-1. Start with vulnerabilities/reentrancy/README.md
-2. Review the vulnerable Solidity contract
-3. Review the exploit
-4. Review the fix
-5. Compare invariant before vs after
-
-This repo is intentionally separate from the main
-Smart-Contract Architect Portfolio and is frozen by design.
+This lab is intentionally small: depth over breadth.
+Status: Locked.

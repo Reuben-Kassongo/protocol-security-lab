@@ -1,12 +1,17 @@
-# Methodology
+# Methodology — Invariant → Failure → Impact
 
-Every vulnerability folder follows the same format:
+## Merge Recall
+Spike → commit → trust → propagation.
 
-1) Invariant
-2) Failure mechanism (Repeat / Reorder / Reenter / Stale)
-3) Impact (TVL drain / authority bypass / etc.)
-4) Repro steps
-5) Fix + why it works
-6) What tests would have caught it
+## Required sections
+- Spike
+- Invariant
+- Attack Surface
+- Failure mode
+- Reproduction
+- Mitigation
+- Impact
 
-Minimal, executable, high-signal.
+## Threat Model
+Targets are truth-critical commit points:
+money, authority, price, time.
