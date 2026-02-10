@@ -1,47 +1,66 @@
-# Protocol Security Lab
+## Foundry
 
-Invariant-driven security research showing **how protocol truths break** —
-and how those failures propagate across systems.
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-This lab demonstrates:
-- vulnerability discovery via invariant violations,
-- exploit reproduction at truth-critical moments,
-- mitigations that restore safety guarantees.
+Foundry consists of:
 
-Audience: protocol engineers, security reviewers, and auditors.
+- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
----
+## Documentation
 
-## How to evaluate this repository
+https://book.getfoundry.sh/
 
-Each vulnerability is evaluated by one rule:
+## Usage
 
-**Rule:** if a truth can be committed before it is safe, the system is exploitable.
+### Build
 
-Navigate by invariant:
-- **Reentrancy** → Commit before safety
-- **Access Control** → Authority before finality
-- **Arithmetic** → Value escapes bounds
+```shell
+$ forge build
+```
 
-Start with:
-- `docs/methodology.md` — how targets are chosen and evaluated
-- `vulnerabilities/` — invariant → failure → impact write-ups
+### Test
 
----
+```shell
+$ forge test
+```
 
-## Structure
+### Format
 
-Each vulnerability follows the same shape:
+```shell
+$ forge fmt
+```
 
-- `vulnerable.sol` — minimal unsafe implementation
-- `exploits/<name>/exploit.py` — reproduction of the failure
-- `mitigations/<name>/fixed.sol` — invariant-preserving fix
-- `README.md` — proof narrative (why it breaks, why it matters)
+### Gas Snapshots
 
-This consistency is intentional.
-It mirrors how real audits reason about risk.
+```shell
+$ forge snapshot
+```
 
----
+### Anvil
 
-Status: Locked.  
-This lab is intentionally limited to a small number of deep cases.
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```
