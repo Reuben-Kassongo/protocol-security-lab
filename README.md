@@ -1,66 +1,70 @@
-## Foundry
+# Protocol Security Lab
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A focused security lab demonstrating **how protocol invariants fail**
+and how those failures propagate across systems.
 
-Foundry consists of:
+This is a **bug-zoo style repository**:
+small, reproducible cases showing:
+- a violated invariant,
+- a concrete exploit path,
+- a mitigation that restores correctness,
+- and the resulting system-level impact.
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+Audience: protocol engineers, smart-contract developers, and security reviewers.
 
-## Documentation
+---
 
-https://book.getfoundry.sh/
+## What this repo is (and is not)
 
-## Usage
+**This repo is:**
+- a study of *truth-critical failures* (money, authority, price),
+- a demonstration of invariant-driven security reasoning,
+- intentionally small and curated.
 
-### Build
+**This repo is not:**
+- a protocol implementation,
+- a deployment environment,
+- a tooling tutorial.
 
-```shell
-$ forge build
-```
+---
 
-### Test
+## How to navigate
 
-```shell
-$ forge test
-```
+- `docs/methodology.md`  
+  The reasoning model used throughout the lab  
+  (Merge Recall, threat model, evaluation rule).
 
-### Format
+- `vulnerabilities/`  
+  Each vulnerability includes:
+  - the broken invariant,
+  - the failure mode (repeat / reorder / reenter / stale),
+  - system impact via belief propagation.
 
-```shell
-$ forge fmt
-```
+- `exploits/`  
+  Minimal exploit reproductions showing how the invariant is violated.
 
-### Gas Snapshots
+- `mitigations/`  
+  Fixed implementations enforcing the invariant.
 
-```shell
-$ forge snapshot
-```
+---
 
-### Anvil
+## Why only a few vulnerabilities?
 
-```shell
-$ anvil
-```
+This lab prioritizes **depth over coverage**.
 
-### Deploy
+Each case targets a *truth-critical spike*:
+- Supply
+- Authority
+- Accrual
+- Reserves
+- Solvency
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+If a system commits one of these before it is safe,
+the exploit is rarely local — it propagates across edges.
 
-### Cast
+---
 
-```shell
-$ cast <subcommand>
-```
+## Status
 
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+**Locked.**  
+This repository is intentionally not expanded beyond these cases.
